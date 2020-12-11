@@ -17,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/playerthomasm6/raticles/issues"
   },
-  "homepage": "https://github.com/playerthomasm6/raticles#readme"
+  "homepage": "https://github.com/playerthomasm6/raticles#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
+  }
 }

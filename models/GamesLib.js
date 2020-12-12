@@ -14,6 +14,11 @@ module.exports= function(sequelize, DataTypes) {
           foreignKey: {
               allowNull: false
           }
+        }),
+        GamesLib.belongsTo(models.WishList, {
+            foreignKey: {
+                allowNull: false
+            }
         });
       };
 

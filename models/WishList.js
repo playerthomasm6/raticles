@@ -1,6 +1,6 @@
 module.exports= function(sequelize, DataTypes) {
     var WishList = sequelize.define("WishList", {
-        Title: {type :DataTypes.STRING,
+        Title: {type: DataTypes.STRING,
         allowNull: false,
         validate: {
             len: [1, 140]
@@ -12,7 +12,7 @@ module.exports= function(sequelize, DataTypes) {
     });
 
     WishList.associate = function(models) {
-        WishList.belongsTo(models.GamesLib, models.User, { 
+        WishList.belongsTo(models.User, { 
           foreignKey: {
             allowNull: false
           }

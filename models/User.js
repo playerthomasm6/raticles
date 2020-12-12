@@ -1,6 +1,6 @@
 module.exports= function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
-        Username: {type :DataTypes.STRING,
+        Username: {type: DataTypes.STRING,
         allowNull: false,
         validate: {
             len: [1, 140]
@@ -21,14 +21,14 @@ module.exports= function(sequelize, DataTypes) {
                 len: [1, 140]
             }
         },
-        First_name: {
-            type:DataTypes.STRING,
+        FirstName: {
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1, 140]
             }
         },
-        Last_name: {
+        LastName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -41,7 +41,7 @@ module.exports= function(sequelize, DataTypes) {
     });
 
     User.associate = function(models) {
-        User.hasMany(models.GamesLib, models.WishList, {
+        User.hasMany(models.GamesLib, {
           onDelete: "cascade"
         });
       };

@@ -41,9 +41,12 @@ module.exports= function(sequelize, DataTypes) {
     });
 
     User.associate = function(models) {
-        User.hasMany(models.GamesLib, {
+        User.hasOne(models.GamesLib, {
           onDelete: "cascade"
         });
+        User.hasOne(models.WishList, {
+            onDelete: "cascade"
+        })
       };
     return User;
 }

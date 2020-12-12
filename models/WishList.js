@@ -12,7 +12,7 @@ module.exports= function(sequelize, DataTypes) {
     });
 
     WishList.associate = function(models) {
-        WishList.belongsTo(models.User, { 
+        WishList.belongsTo(models.GamesLib, { 
           foreignKey: {
             allowNull: false
           }

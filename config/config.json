@@ -3,7 +3,7 @@
     "username": "root",
     "password": "password",
     "database": "raticles",
-    "host": ";localhost",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "test": {

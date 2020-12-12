@@ -10,7 +10,29 @@ module.exports= function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                leng: [1, 140]
+                len: [1, 140]
+            }
+        },
+
+        Email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 140]
+            }
+        },
+        First_name: {
+            type:DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 140]
+            }
+        },
+        Last_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 140]
             }
         }
     
@@ -19,8 +41,6 @@ module.exports= function(sequelize, DataTypes) {
     });
 
     User.associate = function(models) {
-        // Associating Author with Posts
-        // When an Author is deleted, also delete any associated Posts
         User.hasMany(models.GamesLib, models.WishList, {
           onDelete: "cascade"
         });

@@ -12,12 +12,12 @@ module.exports= function(sequelize, DataTypes) {
     });
 
     WishList.associate = function(models) {
-        WishList.belongsTo(models.GamesLib, { 
-          foreignKey: {
+      WishList.belongsTo(models.User, {
+        foreignKey: {
             allowNull: false
-          }
-        });
-      };
+        }
+      });
+    };
 
 
     return WishList;

@@ -41,12 +41,12 @@ module.exports= function(sequelize, DataTypes) {
     });
 
     User.associate = function(models) {
-        User.hasOne(models.GamesLib, {
-          onDelete: "cascade"
-        });
         User.hasOne(models.WishList, {
+          onDelete: "cascade"
+        }),
+        User.hasOne(models.GamesLib, {
             onDelete: "cascade"
-        })
+        });
       };
     return User;
 }

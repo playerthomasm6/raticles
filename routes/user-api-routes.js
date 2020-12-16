@@ -5,6 +5,8 @@
 
 var db = require("../models")
 
+var passport = require("../config/passport");
+
 module.exports = function(app) {
     app.get("/api/users", function(req, res) {
       db.User.findAll({
@@ -30,6 +32,10 @@ module.exports = function(app) {
         res.json(dbUser);
       });
     });
+    
+    app.post("/api/users", passport.authenticate("local"), function (req,res) {
+      res.json(req.user);
+    })
   
     app.delete("/api/users/:id", function(req, res) {
       db.User.destroy({

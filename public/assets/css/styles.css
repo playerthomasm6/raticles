@@ -29,6 +29,14 @@ h1{
     outline: none;
 }
 
+.search-btn{
+  height: 50px;
+  width: 150px;
+  background: red;
+  border: none;
+  color: white;
+  border-radius: 25px;
+}
 
 input[type=text], input[type=password] {
     width: 100%;

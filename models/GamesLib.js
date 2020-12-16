@@ -16,7 +16,17 @@ module.exports= function(sequelize, DataTypes) {
           }
         })
         };
+        GamesLib.belongsTo(models.WishList, {
+            foreignKey: {
+                allonwNull: false
+            }
+        }),
+        GamesLib.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+      };
 
 
     return GamesLib;
-}

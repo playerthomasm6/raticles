@@ -21,3 +21,10 @@ h1{
     letter-spacing: 2px;
 }
 
+.search-game{
+    height: 50px;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+}

@@ -1,5 +1,5 @@
 // const { json } = require("sequelize/types");
-
+module.exports = 
 
 function searchGame() {
 

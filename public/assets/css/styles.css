@@ -15,6 +15,11 @@ body{
     font-family: sans-serif;
 }
 
+.form-label{
+  color: white;
+  font-size: 15px;
+}
+
 h1{
     margin-bottom: 70px;
     font-size: 45px;
@@ -133,6 +138,16 @@ input[type=text], input[type=password] {
   .animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
+  }
+
+  #Sign{
+    background-color: #1e4ac2;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
   }
   
   @-webkit-keyframes animatezoom {

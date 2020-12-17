@@ -34,7 +34,7 @@ module.exports = function(app) {
     });
     
     app.post("/api/users", passport.authenticate("local"), function (req,res) {
-      res.json(req.user);
+      res.json(req.User);
     });
   
     app.delete("/api/users/:id", function(req, res) {

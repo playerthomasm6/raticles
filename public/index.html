@@ -36,12 +36,12 @@
                     style="width:auto;">Login</button>
 
                 <div id="id01" class="modal">
-
+<!-- 
                     <form class="modal-content animate" action="/action_page.php" method="post">
                         <div class="imgcontainer">
                             <span onclick="document.getElementById('id01').style.display='none'" class="close"
                                 title="Close Modal">&times;</span>
-                            <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                            <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
                         </div>
 
                         <div class="container">
@@ -70,16 +70,17 @@
 
     <!-- The form -->
     <div class="header" >
-    <form>
+    <div class ="form">
         <h1>Search a Video Game</h1>
-        <input type="text" class="search-game" placeholder="Search..">
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <input type="text" class="search-game" id="searchGames" placeholder="Search..">
+        <button type="submit" onclick="searchGame()"><i class="fa fa-search"></i></button>
 
-        </form>
+    </div>
     </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</body>
+        <script type="text/javascript" src="assets/js/igdb.js"></script>
+    </body>
 
 </html>

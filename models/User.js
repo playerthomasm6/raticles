@@ -24,14 +24,14 @@ module.exports= function(sequelize, DataTypes) {
                 len: [1, 140]
             }
         },
-        FirstName: {
+        Firstname: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1, 140]
             }
         },
-        LastName: {
+        Lastname: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {

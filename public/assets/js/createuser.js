@@ -7,7 +7,7 @@
   var emailInput = $("#exampleInputEmail1");
   var passwordInput = $("#exampleInputPassword1");
 
-  $("#submitBtn").on("click", function (event) {
+  $("#form.formsubmit").on("click", function (event) {
     event.preventDefault();
     var userData = {
       FirstName: firstInput.val().trim(),
@@ -31,7 +31,7 @@
   }); 
 
   function createUser(FirstName,LastName,Username,Email,Password){
-    $.post("/api/users", {
+    $.post("/api/user", {
       FirstName: FirstName,
       LastName: LastName,
       Username: Username,

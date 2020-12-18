@@ -8,7 +8,7 @@ body{
 }
 
 .header{
-    height: 100vh;
+    height: 50vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,9 +21,10 @@ body{
 }
 
 h1{
-    margin-bottom: 70px;
+    margin-bottom: 60px;
     font-size: 45px;
     letter-spacing: 2px;
+    text-align: center;
 }
 
 .search-game{
@@ -32,6 +33,7 @@ h1{
     border: none;
     border-radius: 25px;
     outline: none;
+    text-align: left;
 }
 
 .search-btn{
@@ -41,7 +43,7 @@ h1{
   border: none;
   color: white;
   border-radius: 25px;
-  
+  margin-left: 150px;
 }
 
 .search-btn:hover {

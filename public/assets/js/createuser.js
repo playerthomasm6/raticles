@@ -8,41 +8,44 @@ $(document).ready(function() {
     var passwordInput = $("#exampleInputPassword1");
   
     // When the signup button is clicked, we validate the email and password are not blank
-    signUpForm.on("click", function(event) {
+    $("#submitBtn").on("click", function(event) {
+      console.log("test")
       event.preventDefault();
-      var userData = {
-        firstname: firstInput.val().trim(),
-        secondname: secondInput.val().trim(),
-        username: uName.val().trim(),
-        email: emailInput.val().trim(),
-        password: passwordInput.val().trim()
+      const userData = {
+        Firstname: firstInput.val().trim(),
+        Lastname: secondInput.val().trim(),
+        Username: uName.val().trim(),
+        Email: emailInput.val().trim(),
+        Password: passwordInput.val().trim()
       };
-      console.log("This submit worked Ln 20 createuser.js" + userdata)
+      console.log(userData)
   
-      if (!userData.email || !userData.password) {
+      if (!userData.Email || !userData.Password || !userData.Username || !userData.Firstname || !userData.Lastname) {
         return;
       }
       // If we have an email and password, run the signUpUser function
-      signUpUser(userData.firstname, userData.secondname,userData.username,userData.email, userData.password);
+      signUpUser(userData);
       firstInput.val("");
       secondInput.val("");
       uName.val("");
       emailInput.val("");
       passwordInput.val("");
+
     });
   
     // Does a post to the signup route. If successful, we are redirected to the main page
     // Otherwise we log any errors
-    function signUpUser(firstname, secondname, username, email, password) {
-      $.post("/api/signup", {
-        Firstname: userData.firstname,
-        Lastname: userData.secondname,
-        Username: userData.uName,
-        Email: userData.email,
-        Password: userData.passwordInput
+    function signUpUser(userData) {
+      console.log(userData)
+      $.post("/api/users", {
+        Firstname: userData.Firstname,
+        Lastname: userData.Lastname,
+        Username: userData.Username,
+        Email: userData.Email,
+        Password: userData.Password
       })
         .then(function(data) {
-          window.location.replace("/members");
+          window.location.replace("/wishlist.html");
           // If there's an error, handle it by throwing up a bootstrap alert
         })
         .catch(handleLoginErr);

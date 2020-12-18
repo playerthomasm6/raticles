@@ -24,14 +24,14 @@ module.exports= function(sequelize, DataTypes) {
                 len: [1, 140]
             }
         },
-        FirstName: {
+        Firstname: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1, 140]
             }
         },
-        LastName: {
+        Lastname: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -48,7 +48,7 @@ module.exports= function(sequelize, DataTypes) {
     };
 
     User.addHook("beforeCreate", function(user) {
-        user.Password = bcrypt.hasSynch(user.Password, bcrypt.genSaltSync(10), null);
+        user.Password = bcrypt.hashSync(user.Password, bcrypt.genSaltSync(10), null);
     });
 
     User.associate = function(models) {

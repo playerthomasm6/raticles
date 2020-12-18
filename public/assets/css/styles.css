@@ -150,6 +150,11 @@ input[type=text], input[type=password] {
     cursor: pointer;
     width: 100%;
   }
+
+  img.avatar{
+    width: 18%;
+    border-radius: 50%;
+  }
   
   @-webkit-keyframes animatezoom {
     from {-webkit-transform: scale(0)} 

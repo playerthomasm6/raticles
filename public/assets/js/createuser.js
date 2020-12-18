@@ -8,7 +8,8 @@ $(document).ready(function() {
     var passwordInput = $("#exampleInputPassword1");
   
     // When the signup button is clicked, we validate the email and password are not blank
-    signUpForm.on("click", function(event) {
+    $("#submitBtn").on("click", function(event) {
+      console.log("test")
       event.preventDefault();
       const userData = {
         Firstname: firstInput.val().trim(),
@@ -17,24 +18,26 @@ $(document).ready(function() {
         Email: emailInput.val().trim(),
         Password: passwordInput.val().trim()
       };
-      console.log("This submit worked Ln 20 createuser.js" + userdata)
+      console.log(userData)
   
-      if (!userData.Email || !userData.Password) {
+      if (!userData.Email || !userData.Password || !userData.Username || !userData.Firstname || !userData.Lastname) {
         return;
       }
       // If we have an email and password, run the signUpUser function
-      signUpUser(userData.Firstname, userData.Lastname,userData.Username,userData.email, userData.Password);
+      signUpUser(userData);
       firstInput.val("");
       secondInput.val("");
       uName.val("");
       emailInput.val("");
       passwordInput.val("");
+
     });
   
     // Does a post to the signup route. If successful, we are redirected to the main page
     // Otherwise we log any errors
-    function signUpUser(Firstname, Lastname, Username, Email, Password) {
-      $.post("/api/User", {
+    function signUpUser(userData) {
+      console.log(userData)
+      $.post("/api/users", {
         Firstname: userData.Firstname,
         Lastname: userData.Lastname,
         Username: userData.Username,
@@ -42,7 +45,7 @@ $(document).ready(function() {
         Password: userData.Password
       })
         .then(function(data) {
-          window.location.replace("/members");
+          window.location.replace("/wishlist.html");
           // If there's an error, handle it by throwing up a bootstrap alert
         })
         .catch(handleLoginErr);

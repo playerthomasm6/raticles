@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 //  _________________________
 // |                         |
 // |     USER API ROUTES     |
@@ -49,3 +51,4 @@ module.exports = function(app) {
     });
   
   };
+>>>>>>> b9e96ff3ed22b2a7ee2b1069a4da672c9cb2b7c7

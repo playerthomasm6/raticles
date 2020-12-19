@@ -25,11 +25,12 @@ $(document).ready(function() {
   
     // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
     function loginUser(userData) {
-      $.post("/api/login", {
+      $.post("/api/signin", {
         Email: userData.Email,
         Password: userData.Password
       })
         .then(function() {
+          window.location.replace("/wishlist.html");
         //   window.location.replace("/wishlist.html");
           // If there's an error, log the error
         })

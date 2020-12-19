@@ -30,7 +30,7 @@ $(document).ready(function() {
         Password: userData.Password
       })
         .then(function() {
-          window.location.replace("/wishlist.html");
+          window.location.replace("/index.html");
         //   If there's an error, log the error
         })
         .catch(function(err) {

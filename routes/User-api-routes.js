@@ -34,9 +34,12 @@ module.exports = function(app) {
       });
     });
     
-    app.post("/api/users", passport.authenticate("local"), function (req,res) {
-      res.json(req.User);
-    });
+    // app.post("/api/login", passport.authenticate("local"), function (req,res) {
+    //   console.log(req.user);
+
+    //   res.json(req.user);
+      
+    // });
   
     app.delete("/api/users/:id", function(req, res) {
       db.User.destroy({

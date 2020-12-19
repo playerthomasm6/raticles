@@ -27,16 +27,16 @@ module.exports = function(app) {
         res.json(dbUser);
       });
     });
-  
-    app.post("/api/users", function(req, res) {
+    // changed route from /api/users to /api/create-user
+    app.post("/api/create-users", function(req, res) {
       db.User.create(req.body).then(function(dbUser) {
         res.json(dbUser);
       });
     });
     
-    app.post("/api/users", passport.authenticate("local"), function (req,res) {
-      res.json(req.User);
-    });
+     app.post("/api/users", passport.authenticate("local"), function (req,res) {
+       res.json(req.User);
+     });
   
     app.delete("/api/users/:id", function(req, res) {
       db.User.destroy({

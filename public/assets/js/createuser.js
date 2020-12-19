@@ -37,7 +37,7 @@ $(document).ready(function() {
     // Otherwise we log any errors
     function signUpUser(userData) {
       console.log(userData)
-      $.post("/api/users", {
+      $.post("/api/create-users", {
         Firstname: userData.Firstname,
         Lastname: userData.Lastname,
         Username: userData.Username,

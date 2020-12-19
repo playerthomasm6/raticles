@@ -9,7 +9,7 @@ function searchGame() {
   var settings = {
     "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
     "method": "POST",
-    "data":  `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`, 
+    "data":  `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*, dlcs.*, summary, storyline, url, videos.*, websites.*; search  ${searchGamesString};`, 
     "timeout": 0,
     "headers": {
       "Client-ID": "wtw0hnai6i7njmhspijabmmom6yyh5",
@@ -30,6 +30,7 @@ function searchGame() {
     event.preventDefault();
     searchGame();
   });
+
   
   function gameTitlePoster(response) {
     for (i =0; i < response.length; i++) {

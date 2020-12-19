@@ -8,11 +8,10 @@ passport.use(new LocalStrategy(
   {
     usernameField: "email"
   },
-  function(Email, Password, done) {
+  function(email, password, done) {
     db.User.findOne({
       where: {
-        Email: Email,
-        Username: Username
+        email: email,
       }
     }).then(function(dbUser) {
       if (!dbUser) {
@@ -20,7 +19,7 @@ passport.use(new LocalStrategy(
           message: "Incorrect email."
         });
       }
-      else if (!dbUser.validPassword(Password)) {
+      else if (!dbUser.validPassword(password)) {
         return done(null, false, {
           message: "Incorrect password."
         });

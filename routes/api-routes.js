@@ -7,6 +7,7 @@ module.exports = function(app) {
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    console.log("this is working");
     res.json(req.user);
   });
 
@@ -16,10 +17,10 @@ module.exports = function(app) {
   app.post("/api/createuser", function(req, res) {
     db.User.create({
     Firstname: req.query.Firstname,
-    Lastname: req.quert.Lastname,
+    Lastname: req.query.Lastname,
     Username: req.query.Username,
-      Email: req.query.Email,
-      Password: req.query.Password
+    Email: req.query.Email,
+    Password: req.query.Password
     })
       .then(function() {
         res.redirect(307, "/index");

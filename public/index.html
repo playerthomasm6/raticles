@@ -73,16 +73,27 @@
 
     <!-- The form -->
     <div class="header">
-        <form>
+        <div>
             <h1>Search Gamez</h1>
-            <input type="text" class="search-game" placeholder="Search..">
-            <button type="submit" id="searchBtn" class="search-btn"> Go!</button>
+            <input type="text" class="search-game" id="search-input" placeholder="Search..">
+            <!--This button searches the text input-->
+            <button type="submit" id="search-time" class="search-btn"> 
+            Go!
+            </button>
+            <!--This button searches the text input-->
             <button type="random" class="search-btn"> Random Game</button>
 
-        </form>
+        </div>
+
+    </div>
+
+    <div class="container" id="search-results-name">
+        
+    </div>
         
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./assets/js/igdb.js"></script>
 </body>
 
 </html>

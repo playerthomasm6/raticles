@@ -30,8 +30,8 @@ $(document).ready(function() {
         Password: userData.Password
       })
         .then(function() {
-        //   window.location.replace("/wishlist.html");
-          // If there's an error, log the error
+          window.location.replace("/wishlist.html");
+        //   If there's an error, log the error
         })
         .catch(function(err) {
           console.log(err);

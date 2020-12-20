@@ -102,7 +102,7 @@ function getGameInfo(gameName) {
   //GET https://<your-request-url>/games/?search=zelda&fields=id,name
 
   var settings = {
-    "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
+    "url": "https://limitless-tor-79246.herokuapp.com/cors/https://api.igdb.com/v4/games/",
     "method": "POST",
     "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`,
     "timeout": 0,

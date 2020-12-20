@@ -32,7 +32,7 @@ module.exports = function(app) {
       db.User.create(req.body).then(function(dbUser) {
         res.json(dbUser);
       });
-    });
+    })
     
     // app.post("/api/login", passport.authenticate("local"), function (req,res) {
     //   console.log(req.user);

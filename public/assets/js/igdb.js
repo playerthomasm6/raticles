@@ -1,4 +1,4 @@
-// function to make ajax call
+
 function searchGame() {
 
   var searchGames = $("#search-input").val()
@@ -84,11 +84,11 @@ function addLibrary(gameName) {
 
   $.ajax(settings).done(function (response) {
     console.log(response)
-    
+
     gameTitlePoster(response);
 
   });
-};
+}
 
 function addWishList(gameName) {
   console.log("you added a game to with list")
@@ -102,7 +102,7 @@ function getGameInfo(gameName) {
   //GET https://<your-request-url>/games/?search=zelda&fields=id,name
 
   var settings = {
-    "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
+    "url": "https://limitless-tor-79246.herokuapp.com/cors/https://api.igdb.com/v4/games/",
     "method": "POST",
     "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`,
     "timeout": 0,
@@ -122,12 +122,6 @@ function getGameInfo(gameName) {
   });
 };
 
-
-
-//  _________________________________________
-// |                                         |
-// |             CLICK FUNCTIONS             |
-// |_________________________________________|
 
 // On Click for search button
 $("#search-time").on("click", function (event) {

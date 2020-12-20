@@ -185,3 +185,18 @@ input[type=text], input[type=password] {
        width: 100%;
     }
   }
+
+  /* CSS for index.html and igdb.js dynamically generated HTML
+  */ 
+  .resultsSection{
+    border: solid;
+    background-color: rgb(238, 238, 238);
+    border-width: 2px;
+    border-radius: 10px;
+    color: darkblue;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding: 1%;
+    margin: 1%;
+  }

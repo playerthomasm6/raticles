@@ -1,6 +1,3 @@
-// const { json } = require("sequelize/types");
-
-import Response from ('response');
 
 function searchGame() {
 

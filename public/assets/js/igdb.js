@@ -1,4 +1,7 @@
 // const { json } = require("sequelize/types");
+
+import Response from ('response');
+
 function searchGame() {
 
   var searchGames = $("#search-input").val()
@@ -30,12 +33,3 @@ function searchGame() {
     event.preventDefault();
     searchGame();
   });
-  
-  function gameTitlePoster(response) {
-    for (i =0; i < response.length; i++) {
-      let newElem1 = ("#search-results");
-    let gameResponse = `<p class="game-result"> ${response[i].storyline}</p>`
-    console.log(gameResponse);
-    $(newElem1).append(gameResponse);
-    }
-  }

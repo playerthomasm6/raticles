@@ -4,8 +4,11 @@ body{
 
 .navbar{
     background-color: rgb(172, 0, 0);
-    
-    
+}
+
+#logo {
+  height: 60px;
+  width: 300px
 }
 
 .header{

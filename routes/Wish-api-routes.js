@@ -6,14 +6,12 @@ module.exports = function(app) {
   
   app.get("/api/WishList", function(req, res) {
     var query = {};
-    if (req.query.User_id) {
-      query.UserId = req.query.User_id
-    }
+    // if (req.query.User_id) {
+    //   query.UserId = req.query.User_id
+    // }
   
-    db.WishList.findAll({
-      where: query,
-      include: [db.User]
-    }).then(function(dbWishList) {
+    db.WishList.findAll({})
+    .then(function(dbWishList) {
       res.json(dbWishList);
     });
 

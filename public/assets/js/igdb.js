@@ -11,6 +11,7 @@ function searchGame() {
     "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`,
     "timeout": 0,
     "headers": {
+      "Access-Control-Allow-Origin": "*",
       "Client-ID": "wtw0hnai6i7njmhspijabmmom6yyh5",
       "Authorization": "Bearer jpkrnm1ejzzqfhl1c2wu2wtfb11w2w",
       "Accept": "application/json",
@@ -44,13 +45,13 @@ function gameTitlePoster(response) {
         <h3>${response[i].name}</h3>
     </div>
     <div class="col-sm-2">
-        <button type="submit" class="btn btn-primary addLibrary" id="${idName}Library" data-a="${idName}">+ Library</button>
+        <button type="submit" class="btn btn-primary addLibrary" id="${idName}Library" data-a="${idName}" data-cover="${response[i].cover.url}">+ Library</button>
     </div>
     <div class="col-sm-2">
-        <button type="submit" class="btn btn-success addWishList" id="${idName}Wish" data-a="${idName}">+ Wishlist</button>
+        <button type="submit" class="btn btn-success addWishList" id="${idName}Wish" data-a="${idName}" data-cover="${response[i].cover.url}">+ Wishlist</button>
     </div>
     <div class="col-sm-2">
-        <button type="submit" class="btn btn-info moreInfo" id="${idName}Info" data-a="${idName}">Info</button>
+        <button type="submit" class="btn btn-info moreInfo" id="${idName}Info" data-a="${idName}" data-cover="${response[i].cover.url}">Info</button>
     </div>
 </div>`
     resultsContainer.append(gameTitle);
@@ -84,9 +85,13 @@ function addLibrary(gameName) {
   });
 }
 
-function addWishList(gameName) {
+//-----------------------------------------------------------------
+// WISH LIST FUNCTION
+//-----------------------------------------------------------------
+function addWishList(gameName, coverUrl) {
     $.post("/api/WishList", {
-      Title: gameName
+      Title: gameName,
+      CoverUrl: coverUrl
     })
       .then(function (data) {
         console.log("you added a game to wish list")
@@ -152,9 +157,12 @@ $(document).on("click", "button.addLibrary", function (event) {
 // On click event to add game to wishlist
 $(document).on("click", "button.addWishList", function (event) {
   console.log($(this).data('a'));
-  var gameName = $(this).data('a').toLowerCase();
+  console.log($(this).data('cover'));
+
+  let gameName = $(this).data('a');
+  let coverUrl = $(this).data('cover');
   console.log(gameName);
-  addWishList(gameName);
+  addWishList(gameName, coverUrl);
 });
 
 

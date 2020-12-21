@@ -1,6 +1,7 @@
 module.exports= function(sequelize, DataTypes) {
     var WishList = sequelize.define("WishList", {
-        Title: {type: DataTypes.STRING,
+        Title: {
+          type: DataTypes.STRING,
         allowNull: false,
         validate: {
             len: [1, 140]

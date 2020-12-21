@@ -1,11 +1,11 @@
-
 $(document).ready(function() {
-    // This file just does a GET request to figure out which user is logged in
-    // and updates the HTML on the page
-    $.get("/api/user_data").then(function(data) {
-      $(".member-name").text(data.Email);
-    });
+  // This file just does a GET request to figure out which user is logged in
+  // and updates the HTML on the page
+  $.get("/api/user_data").then(function(data) {
+    $(".member-name").text(data.Email);
   });
+});
+
  
  
   
@@ -22,7 +22,7 @@ $(document).ready(function() {
   
       <div class="col-sm-2">
           <img src="${response[i].cover.url}" alt="selection ${i}">
-      </div>
+     </div>
   
       <div class="col-sm-3">
           <h3>${response[i].name}</h3>
@@ -87,7 +87,7 @@ $(document).ready(function() {
   </div>`
       resultsContainer.append(gameTitle);
     }
-  };
+  }
 
   function getGameInfo(gameName) {
     console.log("you want more information")
@@ -130,3 +130,9 @@ $(document).ready(function() {
         console.log(gameName);
         getGameInfo(gameName);
       });
+
+ 
+ 
+ 
+
+

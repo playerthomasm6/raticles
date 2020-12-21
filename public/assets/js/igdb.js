@@ -1,4 +1,3 @@
-
 function searchGame() {
 
   var searchGames = $("#search-input").val()
@@ -16,6 +15,7 @@ function searchGame() {
       "Client-ID": "wtw0hnai6i7njmhspijabmmom6yyh5",
       "Authorization": "Bearer jpkrnm1ejzzqfhl1c2wu2wtfb11w2w",
       "Accept": "application/json",
+      "Access-Control-Allow-Origin": "http://localhost:8080",
       // "Cookie": "__cfduid=d95ef25d3998aca8e5108fbbfb75328e11608079973"
     },
   };
@@ -38,27 +38,21 @@ function gameTitlePoster(response) {
   for (i = 0; i < response.length; i++) {
     let idName = response[i].name.trim()
     let gameTitle = `<div class="row resultsSection">
-
     <div class="col-sm-2">
         <img src="${response[i].cover.url}" alt="selection ${i}">
     </div>
-
     <div class="col-sm-3">
         <h3>${response[i].name}</h3>
     </div>
-
     <div class="col-sm-2">
         <button type="submit" class="btn btn-primary addLibrary" id="${idName}Library" data-a="${idName}">+ Library</button>
     </div>
-
     <div class="col-sm-2">
         <button type="submit" class="btn btn-success addWishList" id="${idName}Wish" data-a="${idName}">+ Wishlist</button>
     </div>
-
     <div class="col-sm-2">
         <button type="submit" class="btn btn-info moreInfo" id="${idName}Info" data-a="${idName}">Info</button>
     </div>
-
 </div>`
     resultsContainer.append(gameTitle);
   }
@@ -92,8 +86,22 @@ function addLibrary(gameName) {
 }
 
 function addWishList(gameName) {
-  console.log("you added a game to with list")
-};
+    $.post("/api/WishList", {
+      Title: gameName
+    })
+      .then(function (data) {
+        console.log("you added a game to wish list")
+        window.location.replace("/Wishlist.html");
+        // If there's an error, handle it by throwing up a bootstrap alert
+      })
+      .catch(handleLoginErr);
+    }
+function handleLoginErr(err) {
+      $("#alert .msg").text(err.responseJSON);
+      $("#alert").fadeIn(500);
+    }
+
+
 
 function getGameInfo(gameName) {
   console.log("you want more information")

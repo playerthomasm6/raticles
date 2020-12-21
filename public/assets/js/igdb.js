@@ -12,6 +12,7 @@ function searchGame() {
     "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`,
     "timeout": 0,
     "headers": {
+      "Access-Control-Allow-Origin": "*",
       "Client-ID": "wtw0hnai6i7njmhspijabmmom6yyh5",
       "Authorization": "Bearer jpkrnm1ejzzqfhl1c2wu2wtfb11w2w",
       "Accept": "application/json",

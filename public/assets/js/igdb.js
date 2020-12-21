@@ -6,7 +6,7 @@ function searchGame() {
   //GET https://<your-request-url>/games/?search=zelda&fields=id,name
 
   var settings = {
-    "url": "https://limitless-tor-79246.herokuapp.com/cors/https://api.igdb.com/v4/games/",
+    "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
     "method": "POST",
     "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`,
     "timeout": 0,
@@ -63,7 +63,7 @@ function addLibrary(gameName) {
   //GET https://<your-request-url>/games/?search=zelda&fields=id,name
 
   var settings = {
-    "url": "https://limitless-tor-79246.herokuapp.com/cors/https://api.igdb.com/v4/games/",
+    "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
     "method": "POST",
     "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`,
     "timeout": 0,
@@ -95,7 +95,7 @@ function getGameInfo(gameName) {
   //GET https://<your-request-url>/games/?search=zelda&fields=id,name
 
   var settings = {
-    "url": "https://limitless-tor-79246.herokuapp.com/cors/https://api.igdb.com/v4/games/",
+    "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
     "method": "POST",
     "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`,
     "timeout": 0,
@@ -109,7 +109,7 @@ function getGameInfo(gameName) {
 
   $.ajax(settings).done(function (response) {
     console.log(response)
-    
+
     console.log("wow look at all this info" + response[0])
 
   });
@@ -119,7 +119,7 @@ function getGameInfo(gameName) {
 // On Click for search button
 $("#search-time").on("click", function (event) {
   event.preventDefault();
-  
+
   searchGame();
 });
 
@@ -151,3 +151,4 @@ $(document).on("click", "button.moreInfo", function (event) {
   console.log(gameName);
   getGameInfo(gameName);
 });
+

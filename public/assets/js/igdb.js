@@ -12,6 +12,7 @@ function searchGame() {
     "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`,
     "timeout": 0,
     "headers": {
+      "Access-Control-Allow-Origin": "*",
       "Client-ID": "wtw0hnai6i7njmhspijabmmom6yyh5",
       "Authorization": "Bearer jpkrnm1ejzzqfhl1c2wu2wtfb11w2w",
       "Accept": "application/json",
@@ -135,7 +136,7 @@ $("#search-time").on("click", function (event) {
 $(document).on("click", "button.addLibrary", function (event) {
   console.log($(this).data('a'));
   var gameName = $(this).data('a').toLowerCase();
-  console.log(gameName);
+  console.log(gameName + "This came from the html dataset-a");
   addLibrary(gameName);
 });
 

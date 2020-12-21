@@ -5,6 +5,7 @@
 
 // DEPENDENCIES
 var path = require("path");
+var isAuthenticated = require("../config/middleware/isAuthenticated.js")
 
 // ROUTES
 
@@ -25,7 +26,7 @@ module.exports = function(app) {
     });
 
     // WISHLIST HTML
-    app.get("/wish-list", function(req, res) {
+    app.get("/wish-list", isAuthenticated, function(req, res) {
         res.sendFile(path.join(__dirname, "../public/wishlist.html"));
     });
     

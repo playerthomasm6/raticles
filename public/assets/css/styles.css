@@ -29,6 +29,8 @@ h1{
     font-size: 45px;
     letter-spacing: 2px;
     text-align: center;
+    color: rgb(32, 28, 28);
+    text-shadow: white 0px 0px 10px;
 }
 
 .search-game{

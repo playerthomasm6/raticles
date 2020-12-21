@@ -1,4 +1,3 @@
-
 function searchGame() {
 
   var searchGames = $("#search-input").val()
@@ -7,7 +6,7 @@ function searchGame() {
   //GET https://<your-request-url>/games/?search=zelda&fields=id,name
 
   var settings = {
-    "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
+    "url": "https://limitless-tor-79246.herokuapp.com/cors/https://api.igdb.com/v4/games/",
     "method": "POST",
     "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`,
     "timeout": 0,
@@ -37,27 +36,21 @@ function gameTitlePoster(response) {
   for (i = 0; i < response.length; i++) {
     let idName = response[i].name.trim()
     let gameTitle = `<div class="row resultsSection">
-
     <div class="col-sm-2">
         <img src="${response[i].cover.url}" alt="selection ${i}">
     </div>
-
     <div class="col-sm-3">
         <h3>${response[i].name}</h3>
     </div>
-
     <div class="col-sm-2">
         <button type="submit" class="btn btn-primary addLibrary" id="${idName}Library" data-a="${idName}">+ Library</button>
     </div>
-
     <div class="col-sm-2">
         <button type="submit" class="btn btn-success addWishList" id="${idName}Wish" data-a="${idName}">+ Wishlist</button>
     </div>
-
     <div class="col-sm-2">
         <button type="submit" class="btn btn-info moreInfo" id="${idName}Info" data-a="${idName}">Info</button>
     </div>
-
 </div>`
     resultsContainer.append(gameTitle);
   }
@@ -70,7 +63,7 @@ function addLibrary(gameName) {
   //GET https://<your-request-url>/games/?search=zelda&fields=id,name
 
   var settings = {
-    "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
+    "url": "https://limitless-tor-79246.herokuapp.com/cors/https://api.igdb.com/v4/games/",
     "method": "POST",
     "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`,
     "timeout": 0,

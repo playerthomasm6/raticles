@@ -14,6 +14,7 @@ function searchGame() {
       "Client-ID": "wtw0hnai6i7njmhspijabmmom6yyh5",
       "Authorization": "Bearer jpkrnm1ejzzqfhl1c2wu2wtfb11w2w",
       "Accept": "application/json",
+      "Access-Control-Allow-Origin": "http://localhost:8080",
       // "Cookie": "__cfduid=d95ef25d3998aca8e5108fbbfb75328e11608079973"
     },
   };
@@ -84,7 +85,10 @@ function addLibrary(gameName) {
 }
 
 function addWishList(gameName) {
-  console.log("you added a game to with list")
+  $.post("/api/WishList", gameName).then(function(data) {
+    console.log(data);
+  })
+  console.log("you added a game to wish list")
 };
 
 function getGameInfo(gameName) {

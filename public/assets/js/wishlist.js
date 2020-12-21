@@ -1,19 +1,17 @@
-const { response } = require("express");
+//const { response } = require("express");
 
 $(document).ready(function() {
     // This file just does a GET request to figure out which user is logged in
     // and updates the HTML on the page
-    $.get("/api/user_data").then(function(data) {
-      $(".member-name").text(data.Email);
+    $.get("/api/WishList").then(function(data) {
+      $(".member-name").text(data.Title);
     });
   });
- 
- 
-  
- function gameTitlePoster(response) {
+
+  $.post("/api/WishList:Title").then(function gameTitlePoster(response) {
 
     // Grab HTML container for results
-    let resultsContainer = $("#search-results-name");
+   let resultsContainer = $("#search-results-name");
     resultsContainer.empty();
    
     // Create For loop to post each result
@@ -23,7 +21,7 @@ $(document).ready(function() {
   
       <div class="col-sm-2">
           <img src="${response[i].cover.url}" alt="selection ${i}">
-      </div>
+     </div>
   
       <div class="col-sm-3">
           <h3>${response[i].name}</h3>
@@ -44,4 +42,10 @@ $(document).ready(function() {
   </div>`
       resultsContainer.append(gameTitle);
     }
-  };
+  });
+
+ 
+ 
+ 
+
+

@@ -13,7 +13,7 @@ function randomGame() {
     var settings = {
       "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
       "method": "POST",
-      "data": `fields name, summary; where id >= ${randomNumber}; limit 1;`,
+      "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms, summary; where id >= ${randomNumber}; limit 1;`,
       "timeout": 0,
       "headers": {
         "Client-ID": "wtw0hnai6i7njmhspijabmmom6yyh5",
@@ -28,4 +28,6 @@ function randomGame() {
     });
     };
 
+    
+    
     

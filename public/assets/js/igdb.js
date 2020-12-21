@@ -85,11 +85,22 @@ function addLibrary(gameName) {
 }
 
 function addWishList(gameName) {
-  $.post("/api/WishList", gameName).then(function(data) {
-    console.log(data);
-  })
-  console.log("you added a game to wish list")
-};
+    $.post("/api/WishList", {
+      Title: gameName
+    })
+      .then(function (data) {
+        console.log("you added a game to wish list")
+        window.location.replace("/Wishlist.html");
+        // If there's an error, handle it by throwing up a bootstrap alert
+      })
+      .catch(handleLoginErr);
+    }
+function handleLoginErr(err) {
+      $("#alert .msg").text(err.responseJSON);
+      $("#alert").fadeIn(500);
+    }
+
+
 
 function getGameInfo(gameName) {
   console.log("you want more information")

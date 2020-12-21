@@ -85,9 +85,13 @@ function addLibrary(gameName) {
   });
 }
 
-function addWishList(gameName, gameCover) {
+//-----------------------------------------------------------------
+// WISH LIST FUNCTION
+//-----------------------------------------------------------------
+function addWishList(gameName, coverUrl) {
     $.post("/api/WishList", {
-      Title: gameName
+      Title: gameName,
+      CoverUrl: coverUrl
     })
       .then(function (data) {
         console.log("you added a game to wish list")
@@ -153,9 +157,12 @@ $(document).on("click", "button.addLibrary", function (event) {
 // On click event to add game to wishlist
 $(document).on("click", "button.addWishList", function (event) {
   console.log($(this).data('a'));
-  var gameName = $(this).data('a').toLowerCase();
+  console.log($(this).data('cover'));
+
+  let gameName = $(this).data('a');
+  let coverUrl = $(this).data('cover');
   console.log(gameName);
-  addWishList(gameName);
+  addWishList(gameName, coverUrl);
 });
 
 

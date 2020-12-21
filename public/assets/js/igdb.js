@@ -45,13 +45,13 @@ function gameTitlePoster(response) {
         <h3>${response[i].name}</h3>
     </div>
     <div class="col-sm-2">
-        <button type="submit" class="btn btn-primary addLibrary" id="${idName}Library" data-a="${idName}">+ Library</button>
+        <button type="submit" class="btn btn-primary addLibrary" id="${idName}Library" data-a="${idName}" data-cover="${response[i].cover.url}">+ Library</button>
     </div>
     <div class="col-sm-2">
-        <button type="submit" class="btn btn-success addWishList" id="${idName}Wish" data-a="${idName}">+ Wishlist</button>
+        <button type="submit" class="btn btn-success addWishList" id="${idName}Wish" data-a="${idName}" data-cover="${response[i].cover.url}">+ Wishlist</button>
     </div>
     <div class="col-sm-2">
-        <button type="submit" class="btn btn-info moreInfo" id="${idName}Info" data-a="${idName}">Info</button>
+        <button type="submit" class="btn btn-info moreInfo" id="${idName}Info" data-a="${idName}" data-cover="${response[i].cover.url}">Info</button>
     </div>
 </div>`
     resultsContainer.append(gameTitle);
@@ -85,7 +85,7 @@ function addLibrary(gameName) {
   });
 }
 
-function addWishList(gameName) {
+function addWishList(gameName, gameCover) {
     $.post("/api/WishList", {
       Title: gameName
     })

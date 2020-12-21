@@ -3,10 +3,17 @@
 // On Click for search button
 function randomGame() {
 
+    var randomID = Math.floor(Math.random() * (135431 + 1 ));
+
+    console.log(randomID)
+    var randomNum = randomID;
+
+    randomNumber = JSON.stringify(randomNum)
+
     var settings = {
       "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
       "method": "POST",
-      "data": `fields name, summary; where id >= [my_random_id]; limit 1;`,
+      "data": `fields name, summary; where id >= ${randomNumber}; limit 1;`,
       "timeout": 0,
       "headers": {
         "Client-ID": "wtw0hnai6i7njmhspijabmmom6yyh5",
@@ -20,6 +27,5 @@ function randomGame() {
       console.log(response)
     });
     };
-    
-    
+
     

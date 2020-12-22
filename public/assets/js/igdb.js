@@ -3,7 +3,6 @@ function searchGame() {
   var searchGames = $("#search-input").val()
   searchGamesString = JSON.stringify(searchGames)
   console.log(searchGames)
-  //GET https://<your-request-url>/games/?search=zelda&fields=id,name
 
   var settings = {
     "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
@@ -16,7 +15,6 @@ function searchGame() {
       "Authorization": "Bearer jpkrnm1ejzzqfhl1c2wu2wtfb11w2w",
       "Accept": "application/json",
       "Access-Control-Allow-Origin": "http://localhost:8080",
-      // "Cookie": "__cfduid=d95ef25d3998aca8e5108fbbfb75328e11608079973"
     },
   };
 

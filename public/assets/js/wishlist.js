@@ -2,14 +2,13 @@
 $(document).ready(function () {
     // This file just does a GET request to figure out which user is logged in
     // and updates the HTML on the page
+
     $.get("/api/WishList").then(function (data) {
-        console.log(data.Title + " This is the title");
-        console.log(data.CoverUrl + " This is the coverUrl");
-        console.log(data.length);
         console.log(data)
         let resultsContainer = $("#wishResults");
         for (i = 0; i < data.length; i++) {
             let idName = data[i].Title;
+            let dataId = data[i].id
             let gameTitle = `<div class="row resultsSection">
       
            <div class="col-sm-2">
@@ -25,8 +24,7 @@ $(document).ready(function () {
            </div>
           
            <div class="col-sm-2">
-               <button type="submit" class="btn btn-danger removeGame" id="${idName}remove" data-a="${idName}" data-id= "${data[i].id}">Remove</button>
-              
+               <button type="submit" class="removeGame btn btn-danger" id="${idName}remove" data-a="${idName}" data-b="${dataId}">Remove</button>
            </div>
        </div>`
             resultsContainer.append(gameTitle);
@@ -34,6 +32,26 @@ $(document).ready(function () {
 
     });
 
+    
+
+    function deleteResult(event) {
+        event.stopPropagation();
+        var id = $(this).attr("data-b");
+        $.ajax({
+            method: "DELETE",
+            url: "/api/WishList/" + id
+        }).then(reloadPage)
+
+    }
+
+    $(document).on("click", "button.removeGame", function (event) {
+        var Gameid = $(this).data("b");
+        console.log(Gameid);
+        $.ajax({
+            method: "DELETE",
+            url: "/api/WishList/" + Gameid
+        }).then(reloadPage)
+    });
 
     $("button.removeGame").on("click",function() {
         $.ajax({

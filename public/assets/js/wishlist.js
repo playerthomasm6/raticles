@@ -53,18 +53,9 @@ $(document).ready(function () {
         }).then(reloadPage)
     });
 
-    $("button.removeGame").on("click",function() {
-        $.ajax({
-          method: "DELETE",
-          url: "/api/WishList/" + $(this).attr("data-id")
-        })
-          // On success, run the following code
-          .then(function() {
-            console.log("Deleted Successfully!");
-          });
-          location.reload();
-      })
-    
+function reloadPage() {
+    window.location.replace("/Wishlist.html");
+}
     
     
 

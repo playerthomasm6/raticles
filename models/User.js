@@ -55,7 +55,7 @@ module.exports= function(sequelize, DataTypes) {
         User.hasOne(models.WishList, {
           onDelete: "cascade"
         }),
-        User.hasOne(models.GameInfo, {
+        User.hasOne(models.Gameinfo, {
             onDelete: "cascade"
         });
       };

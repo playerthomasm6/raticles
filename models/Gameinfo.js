@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    var GameInfo = sequelize.define("GameInfo", {
+    var Gameinfo = sequelize.define("Gameinfo", {
 
         Title: {
             type: DataTypes.STRING,
@@ -28,20 +28,20 @@ module.exports = function (sequelize, DataTypes) {
 
     });
 
-    GameInfo.associate = function (models) {
-        GameInfo.belongsTo(models.User, {
+    Gameinfo.associate = function (models) {
+        Gameinfo.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
             }
         }),
     
-     GameInfo.belongsTo(models.WishList, {
+     Gameinfo.belongsTo(models.WishList, {
          foreignKey: {
              allonwNull: false
          }
      })
 
     };
-    return GameInfo;
+    return Gameinfo;
 };
 

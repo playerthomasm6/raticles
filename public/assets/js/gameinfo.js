@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
     // This file just does a GET request to figure out which user is logged in
     // and updates the HTML on the page
@@ -29,10 +31,10 @@ $(document).ready(function () {
        </div>`
             resultsContainer.append(gameTitle);
 
-    }
+        }
 
     });
-});   
+});
 
 $(document).on("click", "button.removeGame", function (event) {
     var Gameid = $(this).data("b");
@@ -44,5 +46,5 @@ $(document).on("click", "button.removeGame", function (event) {
 });
 
 function reloadPage() {
-window.location.replace("/Wishlist.html");
+    window.location.replace("/Wishlist.html");
 }

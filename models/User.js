@@ -1,14 +1,14 @@
 var bcrypt = require("bcryptjs");
 
-
-module.exports= function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define("User", {
-        Username: {type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-            len: [1, 140]
-        }
-    },
+        Username: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 140]
+            }
+        },
         Password: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -38,26 +38,24 @@ module.exports= function(sequelize, DataTypes) {
                 len: [1, 140]
             }
         }
-    
 
-        
     });
 
-    User.prototype.validPassword = function(Password) {
+    User.prototype.validPassword = function (Password) {
         return bcrypt.compareSync(Password, this.Password);
     };
 
-    User.addHook("beforeCreate", function(user) {
+    User.addHook("beforeCreate", function (user) {
         user.Password = bcrypt.hashSync(user.Password, bcrypt.genSaltSync(10), null);
     });
 
-    User.associate = function(models) {
+    User.associate = function (models) {
         User.hasOne(models.WishList, {
-          onDelete: "cascade"
-        }),
-        User.hasOne(models.GameInfo, {
             onDelete: "cascade"
-        });
-      };
+        }),
+            User.hasOne(models.GameInfo, {
+                onDelete: "cascade"
+            });
+    };
     return User;
 }

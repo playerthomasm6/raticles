@@ -4,10 +4,8 @@ $(document).ready(function () {
     // and updates the HTML on the page
 
     $.get("/api/WishList").then(function (data) {
-        console.log(data)
         let resultsContainer = $("#wishResults");
         for (i = 0; i < data.length; i++) {
-            console.log(data[i], "Checking data");
             let idName = data[i].Title;
             let dataId = data[i].id;
             let gameId = data[i].GameId;
@@ -44,7 +42,7 @@ $(document).ready(function () {
         var settings = {
             "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
             "method": "POST",
-            "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*, summary, storyline, genres.*, screenshots.*; search  ${searchGamesString};`,
+            "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*, summary, storyline, genres.*, screenshots.*; where game = ${Gameid};`,
             "timeout": 0,
             "headers": {
                 "Access-Control-Allow-Origin": "*",
@@ -56,22 +54,44 @@ $(document).ready(function () {
             },
         };
 
-
         console.log(event.target);
-        $.ajax({
-            method: "POST",
-            url: "/api/Gameinfo/" + Gameid
-        }).then(reloadPage)
-    });
+        $.ajax(settings).then(function(data) {
+            let gameData = data[0];
+            window.location.replace("/game-info");
+            console.log(data[0]);
+            populateGameInfo(gameData);
+    }).catch(window.location.replace("/game-info"));
+})
 
-    function reloadPage() {
-        window.location.replace("/gameinfo.html");
-    }
+function populateGameInfo(gameData) {
+    let gameId = data[0].id;
+    let idName = response[i].name.trim()
+    let gameTitle = `<div class="row resultsSection">
+    <div class="col-sm-2">
+        <img src="${response[i].cover.url}" alt="selection ${response[i].name}">
+    </div>
+    <div class="col-sm-3">
+        <h3>${response[i].name}</h3>
+    </div>
+    <div class="col-sm-2">
+        <button type="submit" class="btn btn-primary addLibrary" id="${idName}Library" data-a="${idName}" data-cover="${response[i].cover.url}">+ Library</button>
+    </div>
+    <div class="col-sm-2">
+        <button type="submit" class="btn btn-success addWishList" id="${idName}Wish" data-a="${idName}" data-cover="${response[i].cover.url}" data-b="${gameId}">+ Wishlist</button>
+    </div>
+    <div class="col-sm-2">
+        <button type="submit" class="btn btn-info moreInfo" id="${idName}Info" data-a="${idName}" data-cover="${response[i].cover.url}">Info</button>
+    </div>
+</div>`
+    resultsContainer.append(gameTitle);
+}
+
     // ------------------------------
     //   ON CLICK for DELETE BUTTON
     // ------------------------------
 
     $(document).on("click", "button.removeGame", function (event) {
+        event.stopPropagation();
         var Gameid = $(this).data("b");
         console.log(Gameid);
         $.ajax({

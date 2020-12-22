@@ -1,3 +1,4 @@
+
 function searchGame() {
 
   var searchGames = $("#search-input").val()

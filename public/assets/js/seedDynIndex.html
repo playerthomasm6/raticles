@@ -24,14 +24,19 @@
 </div>
  -->
 
- <div class="container">
-    <div class="row">
-      <h1 class="col">${data[i].title}</h1>
+<div class="row resultsSection">
 
+    <div class="col-sm-3">
+        <h3>${response[i].name}</h3>
     </div>
-    <div class="row">
-      <div class="col-6"><img src="${data[i].CoverUrl}"></div>
-      <h3 class="col-8">${data[i].storyline}</h3>
-      <div class="col">${data[i].</div>
+
+    <div class="col-sm-2">
+        <img src="${data[0].cover.url}" alt="${response[i].name}img">
     </div>
-  </div>
+
+    <div class="col-sm-3">
+        <h3>${response[i].name}</h3>
+    </div>
+
+</div>
+

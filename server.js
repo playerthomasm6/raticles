@@ -3,18 +3,18 @@
 // _______________________________________________________________________________
 
 
-// _______________________________________________________________________________
-// DEPENDENCIES
-// _______________________________________________________________________________
+// ---------------------------
+//         DEPENDENCIES
+// ---------------------------
 var express = require("express");
 var session = require("express-session");
 
 var passport = require("./config/passport");
 
 
-
-// Sets up the Express App
-// _____________________________________________________________________________
+// ---------------------------------
+//      Sets up the Express App
+// ---------------------------------
 var app = express();
 var PORT = process.env.PORT || 8080;
 
@@ -28,8 +28,9 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Routes
-// =============================================================
+// ---------------------------------------
+//                Routes
+//----------------------------------------
 
 require("./routes/api-routes.js")(app);
 require("./routes/User-api-routes.js")(app); // example routes
@@ -37,10 +38,11 @@ require("./routes/Wish-api-routes.js")(app);
 require("./routes/Library-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 
-// Syncing our sequelize models and then starting our Express app
-// =============================================================
-db.sequelize.sync({ force: false }).then(function() {
-  app.listen(PORT, function() {
+// ----------------------------------------------------------------------
+//    Syncing our sequelize models and then starting our Express app
+// ----------------------------------------------------------------------
+db.sequelize.sync({ force: false }).then(function () {
+  app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
 });

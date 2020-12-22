@@ -12,17 +12,17 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: true,
             validate: {
-              len: [1, 140]
+                len: [1, 140]
             }
-          },
+        },
         Gamesum: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1, 140]
             }
-            
-            
+
+
 
         }
 
@@ -34,12 +34,12 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         }),
-    
-     GameInfo.belongsTo(models.WishList, {
-         foreignKey: {
-             allonwNull: false
-         }
-     })
+
+            GameInfo.belongsTo(models.WishList, {
+                foreignKey: {
+                    allonwNull: false
+                }
+            })
 
     };
     return GameInfo;

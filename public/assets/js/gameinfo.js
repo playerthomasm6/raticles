@@ -29,10 +29,10 @@ $(document).ready(function () {
        </div>`
             resultsContainer.append(gameTitle);
 
-    }
+        }
 
     });
-});   
+});
 
 $(document).on("click", "button.removeGame", function (event) {
     var Gameid = $(this).data("b");
@@ -44,5 +44,5 @@ $(document).on("click", "button.removeGame", function (event) {
 });
 
 function reloadPage() {
-window.location.replace("/Wishlist.html");
+    window.location.replace("/Wishlist.html");
 }

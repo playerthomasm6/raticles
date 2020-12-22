@@ -4,18 +4,18 @@ var LocalStrategy = require("passport-local").Strategy;
 var db = require("../models");
 
 passport.use(new LocalStrategy(
-  
+
   {
-    usernameField: "Email", 
+    usernameField: "Email",
     passwordField: "Password",
   },
-  function(Email, Password, done) {
+  function (Email, Password, done) {
     db.User.findOne({
       where: {
         Email: Email,
-        
+
       }
-    }).then(function(dbUser) {
+    }).then(function (dbUser) {
       if (!dbUser) {
         return done(null, false, {
           message: "Incorrect email."
@@ -31,11 +31,11 @@ passport.use(new LocalStrategy(
   }
 ));
 
-passport.serializeUser(function(User, cb) {
+passport.serializeUser(function (User, cb) {
   cb(null, User);
 });
 
-passport.deserializeUser(function(obj, cb) {
+passport.deserializeUser(function (obj, cb) {
   cb(null, obj);
 });
 

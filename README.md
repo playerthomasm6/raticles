@@ -1,6 +1,6 @@
 # Radical Gamez (raticles)
 
- ![CheeseBurgerLogo](./images/default-image.jpg)
+ ![logo-red](./public/assets/img/logo-red.JPG)
  
 # Table of Contents
 * [Description](Description)

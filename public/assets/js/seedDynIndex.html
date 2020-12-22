@@ -1,5 +1,5 @@
 <!--Seed html for template literals for gameTitlePoster() function-->
-<div class="row resultsSection">
+<!-- <div class="row resultsSection">
 
     <div class="col-sm-2">
         <img src="${response[i].cover.url}" alt="selection ${i}">
@@ -22,4 +22,15 @@
     </div>
 
 </div>
+ -->
 
+ <div class="container">
+    <div class="row">
+      <h1 class="col">${data[i].title}</h1>
+
+    </div>
+    <div class="row">
+      <div class="col-6"><img src="${data[i].CoverUrl}"></div>
+      <div class="col-8">col-4</div>
+    </div>
+  </div>

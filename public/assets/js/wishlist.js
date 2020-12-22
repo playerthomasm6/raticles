@@ -25,54 +25,75 @@ $(document).ready(function () {
            </div>
           
            <div class="col-sm-2">
-               <button type="submit" class="btn btn-danger removeGame" id="${idName}remove" data-a="${idName}">Remove</button>
+               <button type="submit" class="btn btn-danger removeGame" id="${idName}remove" data-a="${idName}" data-id= "${data[i].id}">Remove</button>
+              
            </div>
        </div>`
             resultsContainer.append(gameTitle);
         }
+
     });
 
 
-// function getGameInfo(gameName) {
-//     console.log("you want more information")
-//     var searchGames = gameName
-//     searchGamesString = JSON.stringify(searchGames)
-//     console.log(searchGames)
-//     //GET https://<your-request-url>/games/?search=zelda&fields=id,name
+    $("button.removeGame").on("click",function() {
+        $.ajax({
+          method: "DELETE",
+          url: "/api/WishList/" + $(this).attr("data-id")
+        })
+          // On success, run the following code
+          .then(function() {
+            console.log("Deleted Successfully!");
+          });
+          location.reload();
+      })
+    
+    
+    
 
-//     var settings = {
-//         "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
-//         "method": "POST",
-//         "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`,
-//         "timeout": 0,
-//         "headers": {
-//             "Client-ID": "wtw0hnai6i7njmhspijabmmom6yyh5",
-//             "Authorization": "Bearer jpkrnm1ejzzqfhl1c2wu2wtfb11w2w",
-//             "Accept": "application/json",
-//             // "Cookie": "__cfduid=d95ef25d3998aca8e5108fbbfb75328e11608079973"
-//         },
-//     };
 
-//     $.ajax(settings).done(function (response) {
-//         console.log(response)
 
-//         console.log("wow look at all this info" + response[0])
 
-//     });
-// };
 
-// $(document).on("click", "button.removeGame", function (event) {
-//     console.log($(this).data('a'));
-//     var gameName = $(this).data('a').toLowerCase();
-//     console.log(gameName);
-//     removeGame(gameName);
-// });
+    // function getGameInfo(gameName) {
+    //     console.log("you want more information")
+    //     var searchGames = gameName
+    //     searchGamesString = JSON.stringify(searchGames)
+    //     console.log(searchGames)
+    //     //GET https://<your-request-url>/games/?search=zelda&fields=id,name
 
-// $(document).on("click", "button.moreInfo", function (event) {
-//     console.log($(this).data('a'));
-//     var gameName = $(this).data('a').toLowerCase();
-//     console.log(gameName);
-//     getGameInfo(gameName);
-// });
+    //     var settings = {
+    //         "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
+    //         "method": "POST",
+    //         "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`,
+    //         "timeout": 0,
+    //         "headers": {
+    //             "Client-ID": "wtw0hnai6i7njmhspijabmmom6yyh5",
+    //             "Authorization": "Bearer jpkrnm1ejzzqfhl1c2wu2wtfb11w2w",
+    //             "Accept": "application/json",
+    //             // "Cookie": "__cfduid=d95ef25d3998aca8e5108fbbfb75328e11608079973"
+    //         },
+    //     };
+
+    //     $.ajax(settings).done(function (response) {
+    //         console.log(response)
+
+    //         console.log("wow look at all this info" + response[0])
+
+    //     });
+    // };
+
+    // $(document).on("click", "button.removeGame", function (event) {
+    //     console.log($(this).data('a'));
+    //     var gameName = $(this).data('a').toLowerCase();
+    //     console.log(gameName);
+    //     removeGame(gameName);
+    // });
+
+    // $(document).on("click", "button.moreInfo", function (event) {
+    //     console.log($(this).data('a'));
+    //     var gameName = $(this).data('a').toLowerCase();
+    //     console.log(gameName);
+    //     getGameInfo(gameName);
+    // });
 
 });

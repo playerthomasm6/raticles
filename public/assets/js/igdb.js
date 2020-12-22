@@ -104,6 +104,8 @@ function handleLoginErr(err) {
       $("#alert .msg").text(err.responseJSON);
       $("#alert").fadeIn(500);
     }
+  
+ 
 
 
 
@@ -174,4 +176,5 @@ $(document).on("click", "button.moreInfo", function (event) {
   console.log(gameName);
   getGameInfo(gameName);
 });
+
 

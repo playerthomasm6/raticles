@@ -36,6 +36,8 @@ function gameTitlePoster(response) {
 
   // Create For loop to post each result
   for (i = 0; i < response.length; i++) {
+    console.log(response[i], "checking for id");
+    let gameId = response[i].id;
     let idName = response[i].name.trim()
     let gameTitle = `<div class="row resultsSection">
     <div class="col-sm-2">
@@ -48,7 +50,7 @@ function gameTitlePoster(response) {
         <button type="submit" class="btn btn-primary addLibrary" id="${idName}Library" data-a="${idName}" data-cover="${response[i].cover.url}">+ Library</button>
     </div>
     <div class="col-sm-2">
-        <button type="submit" class="btn btn-success addWishList" id="${idName}Wish" data-a="${idName}" data-cover="${response[i].cover.url}">+ Wishlist</button>
+        <button type="submit" class="btn btn-success addWishList" id="${idName}Wish" data-a="${idName}" data-cover="${response[i].cover.url}" data-b="${gameId}">+ Wishlist</button>
     </div>
     <div class="col-sm-2">
         <button type="submit" class="btn btn-info moreInfo" id="${idName}Info" data-a="${idName}" data-cover="${response[i].cover.url}">Info</button>
@@ -88,10 +90,11 @@ function addLibrary(gameName) {
 //-----------------------------------------------------------------
 // WISH LIST FUNCTION
 //-----------------------------------------------------------------
-function addWishList(gameName, coverUrl) {
+function addWishList(gameName, coverUrl, gameId) {
   $.post("/api/WishList", {
     Title: gameName,
-    CoverUrl: coverUrl
+    CoverUrl: coverUrl,
+    GameId: gameId
   })
     .then(function (data) {
       console.log("you added a game to wish list")
@@ -177,13 +180,12 @@ $(document).on("click", "button.addLibrary", function (event) {
 // WISHLIST
 // On click event to add game to wishlist
 $(document).on("click", "button.addWishList", function (event) {
-  console.log($(this).data('a'));
-  console.log($(this).data('cover'));
 
   let gameName = $(this).data('a');
   let coverUrl = $(this).data('cover');
-  console.log(gameName);
-  addWishList(gameName, coverUrl);
+  let gameId = $(this).data('b');
+  console.log(gameId, "bananan");
+  addWishList(gameName, coverUrl, gameId);
 });
 
 

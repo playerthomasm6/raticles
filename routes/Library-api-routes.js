@@ -43,7 +43,7 @@ module.exports = function(app) {
   });
 
   app.delete("/api/Gameinfo/:id", function(req, res) {
-    db.GamesLib.destroy({
+    db.Gameinfo.destroy({
       where: {
         id: req.params.id
       }

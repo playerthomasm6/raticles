@@ -89,21 +89,39 @@ function addLibrary(gameName) {
 // WISH LIST FUNCTION
 //-----------------------------------------------------------------
 function addWishList(gameName, coverUrl) {
-    $.post("/api/WishList", {
-      Title: gameName,
-      CoverUrl: coverUrl
+  $.post("/api/WishList", {
+    Title: gameName,
+    CoverUrl: coverUrl
+  })
+    .then(function (data) {
+      console.log("you added a game to wish list")
+      window.location.replace("/Wishlist.html");
+      // If there's an error, handle it by throwing up a bootstrap alert
     })
-      .then(function (data) {
-        console.log("you added a game to wish list")
-        window.location.replace("/Wishlist.html");
-        // If there's an error, handle it by throwing up a bootstrap alert
-      })
-      .catch(handleLoginErr);
-    }
+    .catch(handleLoginErr);
+}
 function handleLoginErr(err) {
-      $("#alert .msg").text(err.responseJSON);
-      $("#alert").fadeIn(500);
-    }
+  $("#alert .msg").text(err.responseJSON);
+  $("#alert").fadeIn(500);
+}
+
+function addGameInfo(gameName, GameSum) {
+  $.post("/api/Gameinfo", {
+    Title: gameName,
+    Gamesum: GameSum
+
+  }).then(function (data) {
+    console.log("You are gonna get my information on the game")
+    window.location.replace("/gameinfo.html");
+  }).catch(handleLoginErr);
+}
+function handleLoginErr(err) {
+  $("#alert . msg").txt(err.responseJSON);
+  $("#alert").fadeIn(500);
+
+}
+
+
 
 
 
@@ -117,23 +135,26 @@ function getGameInfo(gameName) {
   var settings = {
     "url": "https://cors-anywhere.herokuapp.com/https://api.igdb.com/v4/games/",
     "method": "POST",
-    "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*; search  ${searchGamesString};`,
+    "data": `fields name, genres.name, age_ratings.*, artworks.*, cover.*, platforms.*, summary, storyline, genres.*, screenshots.*; search  ${searchGamesString};`,
     "timeout": 0,
     "headers": {
+      "Access-Control-Allow-Origin": "*",
       "Client-ID": "wtw0hnai6i7njmhspijabmmom6yyh5",
       "Authorization": "Bearer jpkrnm1ejzzqfhl1c2wu2wtfb11w2w",
       "Accept": "application/json",
+      "Access-Control-Allow-Origin": "http://localhost:8080",
       // "Cookie": "__cfduid=d95ef25d3998aca8e5108fbbfb75328e11608079973"
     },
   };
 
   $.ajax(settings).done(function (response) {
-    console.log(response)
-
-    console.log("wow look at all this info" + response[0])
+    console.log(response);
+    gameTitlePoster(response);
 
   });
 };
+
+
 
 
 // On Click for search button
@@ -174,4 +195,5 @@ $(document).on("click", "button.moreInfo", function (event) {
   console.log(gameName);
   getGameInfo(gameName);
 });
+
 

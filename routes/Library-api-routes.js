@@ -1,67 +1,67 @@
-var db = require("../models");
+var db = require("../models").models
 
 
 module.exports = function(app) {
 
   
-  app.get("/api/GamesLib", function(req, res) {
+  app.get("/api/Gameinfo", function(req, res) {
     var query = {};
     if (req.query.WishList_id, req.query.User_id) {
       query.WishListId = req.query.WishList_id;
       query.UserId = req.query.User_id
     }
   
-    db.GamesLib.findAll({
+    db.Gameinfo.findAll({
       where: query,
       include: [db.WishList, db.User]
-    }).then(function(dbGamesLib) {
-      res.json(dbGamesLib);
+    }).then(function(dbGameinfo) {
+      res.json(dbGameinfo);
     });
 
   });
 
 
-  app.get("/api/GamesLib/:id", function(req, res) {
+  app.get("/api/Gameinfo/:id", function(req, res) {
     
-    db.GamesLib.findOne({
+    db.Gameinfo.findOne({
       where: {
         id: req.params.id
 
       },
       include: [db.WishList, db.User]
-    }).then(function(dbGamesLib) {
-      console.log(dbGamesLib);
-      res.json(dbGamesLib);
+    }).then(function(dbGameinfo) {
+      console.log(dbGameinfo);
+      res.json(dbGameinfo);
     });
   });
 
   
-  app.post("/api/GamesLib", function(req, res) {
-    db.GamesLib.create(req.title).then(function(dbGamesLib) {
-      res.json(dbGamesLib);
+  app.post("/api/Gameinfo", function(req, res) {
+    db.Gameinfo.create(req.title).then(function(dbGameinfo) {
+      res.json(dbGameinfo);
     });
   });
 
-  app.delete("/api/GamesLib/:id", function(req, res) {
+  app.delete("/api/Gameinfo/:id", function(req, res) {
     db.GamesLib.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbGamesLib) {
-      res.json(dbGamesLib);
+    }).then(function(dbGameinfo) {
+      res.json(dbGameinfo);
     });
   });
 
 
-  app.put("/api/GamesLib", function(req, res) {
-    db.GamesLib.update(
+  app.put("/api/Gameinfo", function(req, res) {
+    db.Gameinfo.update(
       req.title,
       {
         where: {
           id: req.title.id
         }
-      }).then(function(dbGamesLib) {
-      res.json(dbGamesLib);
+      }).then(function(dbGameinfo) {
+      res.json(dbGameinfo);
     });
   });
 };

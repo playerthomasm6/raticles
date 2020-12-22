@@ -24,7 +24,7 @@ $(document).ready(function () {
            </div>
           
            <div class="col-sm-2">
-               <button type="submit" class="removeGame btn btn-danger" id="${idName}remove" data-a="${idName}" data-b="${dataId}">Remove</button>
+               <button type="submit" class="removeGame btn btn-danger" id="${idName}remove" data-a="${idName}" data-b="${dataId}" >Remove</button>
            </div>
        </div>`
             resultsContainer.append(gameTitle);
@@ -32,18 +32,24 @@ $(document).ready(function () {
 
     });
 
-    
 
-    function deleteResult(event) {
-        event.stopPropagation();
-        var id = $(this).attr("data-b");
+
+
+    $(document).on("click", "button.moreInfo", function (event) {
+        //$.get("/assets/js/gameinfo.js");
+        var Gameid = $(this).data("gameSum");
+        console.log(Gameid);
         $.ajax({
-            method: "DELETE",
-            url: "/api/WishList/" + id
+            method: "POST",
+            url: "/api/Gameinfo/" + Gameid
         }).then(reloadPage)
-
+    });
+    
+    function reloadPage() {
+    window.location.replace("/gameinfo.html");
     }
-
+    
+    
     $(document).on("click", "button.removeGame", function (event) {
         var Gameid = $(this).data("b");
         console.log(Gameid);
@@ -54,8 +60,10 @@ $(document).ready(function () {
     });
 
 function reloadPage() {
-    window.location.replace("/Wishlist.html");
+    window.location.replace("/wishlist.html");
+
 }
+
     
     
 

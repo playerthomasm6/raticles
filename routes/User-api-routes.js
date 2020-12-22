@@ -11,7 +11,7 @@ var passport = require("../config/passport");
 module.exports = function(app) {
     app.get("/api/users", function(req, res) {
       db.User.findAll({
-        include: [db.GamesLib, db.WishList]
+        include: [db.Gameinfo, db.WishList]
       }).then(function(dbUser) {
         res.json(dbUser);
       });
@@ -22,7 +22,7 @@ module.exports = function(app) {
         where: {
           id: req.params.id
         },
-        include: [db.User, db.GamesLib, db.WishList]
+        include: [db.User, db.Gameinfo, db.WishList]
       }).then(function(dbUser) {
         res.json(dbUser);
       });

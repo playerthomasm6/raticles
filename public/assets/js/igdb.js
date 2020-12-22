@@ -39,7 +39,7 @@ function gameTitlePoster(response) {
     let idName = response[i].name.trim()
     let gameTitle = `<div class="row resultsSection">
     <div class="col-sm-2">
-        <img src="${response[i].cover.url}" alt="selection ${i}">
+        <img src="${response[i].cover.url}" alt="selection ${response[i].name}">
     </div>
     <div class="col-sm-3">
         <h3>${response[i].name}</h3>

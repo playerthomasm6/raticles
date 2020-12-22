@@ -57,7 +57,9 @@ $(document).ready(function () {
         console.log(event.target);
         $.ajax(settings).then(function(data) {
             let gameData = data[0];
-            window.location.replace("/game-info");
+
+// save to local storage
+            window.location.replace("/game-info"); // going to gameinfo page
             console.log(data[0]);
             populateGameInfo(gameData);
     }).catch(window.location.replace("/game-info"));

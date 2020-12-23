@@ -8,18 +8,18 @@
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "password",
-    "database": "raticles",
-    "host": "127.0.0.1",
+    "username": "pbk5iyeu48x5rfjp",
+    "password": "kkr657dwkb063j7t",
+    "database": "ysm2hqxs4758nh9i",
+    "host": "z3iruaadbwo0iyfp.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "password",
-    "database": "raticles",
-    "host": "127.0.0.1",
+    "username": "pbk5iyeu48x5rfjp",
+    "password": "kkr657dwkb063j7t",
+    "database": "ysm2hqxs4758nh9i",
+    "host": "z3iruaadbwo0iyfp.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
   }

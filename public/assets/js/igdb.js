@@ -99,7 +99,7 @@ function addWishList(gameName, coverUrl, gameId) {
   })
     .then(function (data) {
       console.log("you added a game to wish list")
-      window.location.replace("/Wishlist.html");
+      window.location.replace("/wish-list");
       // If there's an error, handle it by throwing up a bootstrap alert
     })
     .catch(handleLoginErr);
@@ -116,7 +116,7 @@ function addGameInfo(gameName, GameSum) {
 
   }).then(function (data) {
     console.log("You are gonna get my information on the game")
-    window.location.replace("/gameinfo.html");
+    window.location.replace("/game-info");
   }).catch(handleLoginErr);
 }
 function handleLoginErr(err) {
@@ -198,5 +198,3 @@ $(document).on("click", "button.moreInfo", function (event) {
   console.log(gameName);
   getGameInfo(gameName);
 });
-
-

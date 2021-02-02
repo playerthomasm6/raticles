@@ -1,0 +1,257 @@
+body{
+    background-image: url(../img/spacejawn.jpg);
+     background-attachment: fixed;
+    background-size: cover;
+}
+
+.navbar{
+    background-color: rgb(255, 255, 255);
+}
+
+.nav-link.active, .nav-link{
+  color: rgb(0, 64, 106) !important;
+}
+
+#logo {
+  height: 60px;
+  width: 300px
+}
+
+.header{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.form-label{
+  color: white;
+  font-size: 15px;
+}
+
+h1{
+    margin-bottom: 60px;
+    font-size: 45px;
+    letter-spacing: 2px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-shadow: rgb(0, 64, 106) 0px 0px 10px;
+}
+
+.search-game{
+    height: 50px;
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    text-align: left;
+}
+
+.search-btn{
+  height: 50px;
+  width: 150px;
+  background: rgb(0, 64, 106);
+  border: none;
+  color: white;
+  border-radius: 25px;
+  margin-left: 150px;
+}
+
+.search-btn:hover {
+  background: white;
+  cursor: pointer;
+  color: rgb(0, 64, 106);
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Set a style for all buttons */
+  .login-btn {
+    background: rgb(0, 64, 106);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 25px;
+  }
+  
+  .login-btn:hover {
+    background-color: #00c7ea;
+    color: rgb(0, 64, 106);
+    cursor: pointer;
+  }
+  
+  /* Extra styles for the cancel button */
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: rgb(0, 64, 106);
+    color: white;
+    border-radius: 25px;
+    border: none;
+  }
+  
+  .cancelbtn:hover {
+    background: white;
+    cursor: pointer;
+    color: rgb(0, 64, 106);
+  }
+
+  /* Center the image and position the close button */
+ 
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+  }
+  
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+  
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color:  rgb(60, 64, 67);
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button (x) */
+  .close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+
+  #Sign{
+    background-color: rgb(0, 64, 106);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 25px;
+  }
+
+  #Sign:hover{
+    background: white;
+    cursor: pointer;
+    color: #1e4ac2;
+  }
+
+  .row.resultsSection{
+      margin: 30px;
+      background-color: #ffffff;
+      border: 1px solid #1e4ac2;
+      opacity: 0.9;
+  }
+
+  .row.resultsSection p {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .btn.btn-outline-succes{
+    background-color: #00c7ea;
+    color: rgb(0, 64, 106);
+  }
+
+  .btn.btn-outline-succes:hover{
+    background-color: #00c7ea;
+    color: rgb(0, 64, 106);
+    cursor: pointer;
+  }
+
+  img.avatar{
+    width: 18%;
+    border-radius: 50%;
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
+
+  /* CSS for index.html and igdb.js dynamically generated HTML
+  */ 
+  .resultsSection{
+    border: solid;
+    background-color: rgb(238, 238, 238);
+    border-width: 2px;
+    border-radius: 10px;
+    color: darkblue;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding: 1%;
+    margin: 1%;
+  }
